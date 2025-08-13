@@ -5,11 +5,10 @@ from django.shortcuts import redirect
 from .models import Employee
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
 
 @login_required
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return redirect("chat")
 
 
 def loginView(request):
@@ -36,3 +35,8 @@ def loginView(request):
             return HttpResponse("Invalid username or password.")
 
     return render(request, 'login.html')
+
+
+@login_required
+def chatView(request):
+    return render(request, 'chat.html')

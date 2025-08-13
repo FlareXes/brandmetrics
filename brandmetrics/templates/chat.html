@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Metrics</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #343541;">
+    <div class="d-flex min-vh-100">
+        <!-- Main Content -->
+        <main class="flex-grow-1 d-flex flex-column position-relative">
+            <!-- Welcome Screen -->
+            <div class="flex-grow-1 overflow-y-auto px-2 py-4">
+                <div class="container" style="max-width: 48rem;">
+                    <!-- Examples Section -->
+                    <h1 class="text-white text-center mb-5 fw-semibold" style="font-size: 2rem;">Brand Metrics</h1>
+
+                    <!-- Chat Conversation -->
+                    <div class="chat-container" style="max-width: 48rem; margin: 0 auto;">
+                        <!-- User Message - Right Aligned -->
+                        <div class="d-flex justify-content-end mb-3">
+                            <div class="user-message p-3" style="max-width: 80%; background-color: #4a9eff; border-radius: 1rem 1rem 0 1rem;">
+                                <div class="text-white">
+                                    <p class="mb-0">What are the key metrics for brand awareness?</p>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 ms-2 d-flex align-items-end">
+                                <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
+                                    <i class="fas fa-user text-white" style="font-size: 0.75rem;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Assistant Message - Left Aligned -->
+                        <div class="d-flex justify-content-start mb-3">
+                            <div class="flex-shrink-0 me-2">
+                                <div class="rounded-circle bg-success d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
+                                    <i class="fas fa-robot text-white" style="font-size: 0.75rem;"></i>
+                                </div>
+                            </div>
+                            <div class="assistant-message p-3" style="max-width: 80%; background-color: #444654; border-radius: 1rem 1rem 1rem 0;">
+                                <div class="text-white">
+                                    <p class="mb-2">Here are the key metrics for brand awareness:</p>
+                                    <ul class="mb-0">
+                                        <li>Brand Recall (aided and unaided)</li>
+                                        <li>Brand Recognition</li>
+                                        <li>Brand Awareness Index</li>
+                                        <li>Social Media Mentions</li>
+                                        <li>Direct Traffic to Website</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="p-4 position-relative"
+                        style="background: linear-gradient(180deg, rgba(53,55,64,0), #353740 58.85%);">
+                        <div class="mx-auto position-relative" style="max-width: 48rem;">
+                            <div class="input-group">
+                                <form method="post" class="input-group" id="chatForm">
+                                    {% csrf_token %}
+                                    <textarea name="message" id="messageInput"
+                                        class="form-control px-4 py-3 bg-dark text-white border-0"
+                                        rows="1"
+                                        style="resize: none; border-radius: 1rem; font-size: 1rem;"
+                                        placeholder="Send a message"></textarea>
+                                
+                                    <button type="submit" class="btn position-absolute end-0 top-50 translate-middle-y me-2"
+                                        style="color: #ACACBE;">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </form>
+                                
+                                <!-- Enter key to submit && Shift + Enter to add newline -->
+                                <script>
+                                document.getElementById('messageInput').addEventListener('keydown', function (e) {
+                                    if (e.key === 'Enter' && !e.shiftKey) {
+                                        e.preventDefault(); // stop adding newline
+                                        document.getElementById('chatForm').submit(); // submit form
+                                    }
+                                });
+                                </script>
+                            </div>
+                            <div class="text-center mt-2" style="font-size: 0.75rem; color: #C5C5D2;">
+                                May produce inaccurate information.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
