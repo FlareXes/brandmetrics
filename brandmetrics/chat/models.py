@@ -11,8 +11,9 @@ class Employee(models.Model):
     emp_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name="employee_profile")
+    email = models.EmailField(
+        max_length=100, unique=True, blank=True, null=True)
     name = models.CharField(max_length=100, blank=True, null=True)
-    email = models.EmailField(max_length=100, blank=True, null=True)
     phone = models.CharField(max_length=20, blank=True, null=True)
     position = models.CharField(max_length=50, blank=True, null=True)
     city = models.CharField(max_length=50, blank=True, null=True)
