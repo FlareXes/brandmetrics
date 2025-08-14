@@ -12,6 +12,8 @@ from datetime import date
 
 @login_required
 def index(request):
+    if request.user.username == "admin":
+        return redirect("login")
     return redirect("chat")
 
 
@@ -48,6 +50,9 @@ def logoutView(request):
 
 @login_required
 def chatView(request):
+    if request.user.username == "admin":
+        return redirect("login")
+
     reply = """I can answer payroll totals for 'this week/month/year/last month', 
 custom ranges like 'from YYYY-MM-DD to YYYY-MM-DD', 
 and 'customer <name>' for orders."""
@@ -97,7 +102,6 @@ and 'customer <name>' for orders."""
 
         elif intent == "orders_by_customer":
             orders = Order.objects.filter(customer_name__iexact=payload)
-            print(orders)
             if orders.exists():
                 orders = list(orders.values())
                 lines = [
