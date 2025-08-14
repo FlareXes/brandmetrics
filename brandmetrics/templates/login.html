@@ -105,15 +105,27 @@
             <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                    <input value="super@gmail.com" type="email" name="email" class="form-control" placeholder="Email" required>
                 </div>
                 <div class="mb-4">
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    <input value="admin@123" type="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
                 <button type="submit" class="btn-login">
                     <i class="fas fa-sign-in-alt me-2"></i>Sign In
                 </button>
             </form>
+            
+            <div class="test-credentials mt-4 p-3" style="background-color: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; font-size: 0.85rem;">
+                <div class="text-center mb-2" style="color: #9CA3AF;">
+                    <i class="fas fa-key me-1"></i> Test Credentials
+                </div>
+                <div class="mb-1">
+                    <span style="color: #9CA3AF;">Email:</span> super@gmail.com
+                </div>
+                <div>
+                    <span style="color: #9CA3AF;">Password:</span> admin@123
+                </div>
+            </div>
         </div>
     </div>
 
