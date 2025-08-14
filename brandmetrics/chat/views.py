@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from .models import Employee
 from django.contrib.auth.decorators import login_required
@@ -38,6 +38,10 @@ def loginView(request):
 
     return render(request, 'login.html')
 
+
+def logoutView(request):
+    logout(request)
+    return redirect("login")
 
 @login_required
 def chatView(request):

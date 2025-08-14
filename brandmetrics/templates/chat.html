@@ -53,9 +53,16 @@
     <div class="chat-wrapper">
 
         <!-- Page Title -->
-        <div class="text-center py-3">
-            <h1 class="text-white fw-semibold" style="font-size: 2rem;">Brand Metrics</h1>
-        </div>
+        <nav class="navbar navbar-expand-sm navbar-dark py-2">
+            <div class="container-fluid justify-content-center">
+                <a class="navbar-brand mx-auto" href="#" style="font-size: 2rem; color: #fff;">
+                    Brand Metrics
+                </a>
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-dark" href="{% url 'logout' %}">Logout</a>
+                </div>
+            </div>
+        </nav>
 
         <!-- Chat Messages -->
         <div class="chat-container" style="max-width: 48rem; margin: 0 auto;">
