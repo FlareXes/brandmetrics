@@ -5,6 +5,8 @@ from django.shortcuts import redirect
 from .models import Employee
 from django.contrib.auth.decorators import login_required
 
+DATA = []
+
 
 @login_required
 def index(request):
@@ -39,4 +41,10 @@ def loginView(request):
 
 @login_required
 def chatView(request):
-    return render(request, 'chat.html')
+    if request.method == "POST":
+        message = request.POST["message"]
+        DATA.append({"role": "user", "content": message})
+        # Temp Response
+        DATA.append({"role": "assistant", "content": f"Hello! {message}"})
+
+    return render(request, 'chat.html', {"messages": DATA})
