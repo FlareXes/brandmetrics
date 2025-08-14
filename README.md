@@ -6,6 +6,8 @@ BrandMetrics is a Django application for tracking brand performance, employee me
 
 A live demo is available at: [https://brandmetrics-latest.onrender.com/](https://brandmetrics-latest.onrender.com/)
 
+Project setup video demo: [https://0x0.st/8C5y.mp4](https://0x0.st/8C5y.mp4)
+
 **Test Agent Credentials:**
 - Email: super@gmail.com
 - Password: admin@123
