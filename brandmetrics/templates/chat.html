@@ -66,13 +66,13 @@
 
         <!-- Chat Messages -->
         <div class="chat-container" style="max-width: 48rem; margin: 0 auto;">
-            {% for message in messages %}
-            {% if message.role == "user" %}
+            {% for chat in chats %}
+            {% if chat.role == "user" %}
             <div class="d-flex justify-content-end mb-3">
                 <div class="user-message p-3"
                     style="max-width: 80%; background-color: #4a9eff; border-radius: 1rem 1rem 0 1rem;">
                     <div class="text-white">
-                        <p class="mb-0">{{ message.content }}</p>
+                        <p class="mb-0">{{ chat.message | linebreaks }}</p>
                     </div>
                 </div>
                 <div class="flex-shrink-0 ms-2 d-flex align-items-end">
@@ -84,7 +84,7 @@
             </div>
             {% endif %}
 
-            {% if message.role == "assistant" %}
+            {% if chat.role == "assistant" %}
             <div class="d-flex justify-content-start mb-3">
                 <div class="flex-shrink-0 me-2">
                     <div class="rounded-circle bg-success d-flex align-items-center justify-content-center"
@@ -95,7 +95,7 @@
                 <div class="assistant-message p-3"
                     style="max-width: 80%; background-color: #444654; border-radius: 1rem 1rem 1rem 0;">
                     <div class="text-white">
-                        {{ message.content }}
+                        {{ chat.message | linebreaks }}
                     </div>
                 </div>
             </div>
@@ -128,8 +128,14 @@
 
     <!-- Scripts -->
     <script>
-        // Enter to submit, Shift+Enter for newline
         document.getElementById('messageInput').addEventListener('keydown', function (e) {
+            // If empty message, prevent submission
+            if (e.key === 'Enter' && !e.shiftKey && !this.value.trim()) {
+                e.preventDefault();
+                return;
+            }
+            
+            // Enter to submit, Shift+Enter for newline
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 document.getElementById('chatForm').submit();

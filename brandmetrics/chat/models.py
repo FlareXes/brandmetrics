@@ -1,3 +1,4 @@
+from random import choice
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -69,3 +70,22 @@ class Payout(models.Model):
 
     def __str__(self):
         return f"{self.emp_id} - {self.type} - {self.paying_date}"
+
+
+class Chat(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    message = models.TextField()
+    role = models.CharField(max_length=10, choices=[
+        ('user', 'User'),
+        ('assistant', 'Assistant'),
+    ])
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "chats"
+        verbose_name = "Chat"
+        verbose_name_plural = "Chats"
+
+    def __str__(self):
+        return f"{self.user} - {self.message}"
