@@ -70,13 +70,21 @@ The application uses a rule-based NLP approach for intent parsing in the chat in
 
 ## Installation
 
-### 1. Using Docker
+You can use existing docker image from [dockerhub](https://hub.docker.com/r/flarexes/brandmetrics) or build your own image.
+
+### Using Docker Image
+
+```bash
+docker run --rm -p 8000:8000 flarexes/brandmetrics:latest
+```
+
+### Building Docker Image
 
 1. Build the Docker image:
 
 ```bash
 docker build -t brandmetrics .
-````
+```
 
 2. Run the container:
 
