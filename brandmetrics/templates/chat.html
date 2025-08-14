@@ -66,6 +66,28 @@
 
         <!-- Chat Messages -->
         <div class="chat-container" style="max-width: 48rem; margin: 0 auto;">
+
+            <!-- Example -->
+            <div class="d-flex justify-content-start mb-3">
+                <div class="flex-shrink-0 me-2">
+                    <div class="rounded-circle bg-success d-flex align-items-center justify-content-center"
+                        style="width: 30px; height: 30px;">
+                        <i class="fas fa-robot text-white" style="font-size: 0.75rem;"></i>
+                    </div>
+                </div>
+                <div class="assistant-message p-3"
+                    style="max-width: 80%; background-color: #444654; border-radius: 1rem 1rem 1rem 0;">
+                    <div class="text-white">
+                        <p class="mb-0">Hi, I am Brand Metrics. You can ask me about employee's payrolls and orders.</p>
+                        <br>
+                        <p class="mb-0">- Type <code>'this week'</code> to know about this week's payrolls.</p>
+                        <p class="mb-0">- Type <code>'this month'</code> to know about this month's payrolls.</p>
+                        <p class="mb-0">- Type <code>'this year'</code> to know about this year's payrolls.</p>
+                        <p class="mb-0">- Type <code>'customer (customer_name)'</code> or <code>'orders for (customer_name)'</code> to know about customer's orders.</p>
+                    </div>
+                </div>
+            </div>
+
             {% for chat in chats %}
             {% if chat.role == "user" %}
             <div class="d-flex justify-content-end mb-3">
